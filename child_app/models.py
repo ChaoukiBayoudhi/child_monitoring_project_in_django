@@ -18,7 +18,7 @@ class Person(models.Model):
         ordering=['first_name','last_name']
         
 class  Parent(Person):
-    #pass
+    # pass
     class Meta :
         db_table='parent'
 class Child(Person):
@@ -37,6 +37,6 @@ class ChildPlace(models.Model):
     child=models.ForeignKey(Child,on_delete=models.CASCADE)
     place=models.ForeignKey(Place,on_delete=models.CASCADE)
     date=models.DateField(default=timezone.now)
-    time=models.TimeField
+    time=models.TimeField(null=True, blank=True)
     class Meta:
         db_table='child_place'
